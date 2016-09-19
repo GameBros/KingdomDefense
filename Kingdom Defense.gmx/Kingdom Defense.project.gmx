@@ -483,7 +483,9 @@
       </backgrounds>
     </backgrounds>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\testpath</path>
+  </paths>
   <scripts name="scripts">
     <scripts name="Initialization">
       <script>scripts\scrInitializeNewGame.gml</script>
@@ -800,7 +802,6 @@
       <script>scripts\scrCursorCreate.gml</script>
       <script>scripts\scrCursorChoseUnit.gml</script>
     </scripts>
-    <script>scripts\scrTestSync.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fHUD</font>
