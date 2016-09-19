@@ -800,6 +800,7 @@
       <script>scripts\scrCursorCreate.gml</script>
       <script>scripts\scrCursorChoseUnit.gml</script>
     </scripts>
+    <script>scripts\scrTestSync.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fHUD</font>
