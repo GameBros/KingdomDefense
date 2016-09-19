@@ -802,6 +802,7 @@
       <script>scripts\scrCursorCreate.gml</script>
       <script>scripts\scrCursorChoseUnit.gml</script>
     </scripts>
+    <script>scripts\scrFuck.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fHUD</font>
