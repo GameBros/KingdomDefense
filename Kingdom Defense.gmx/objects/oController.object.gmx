@@ -169,7 +169,7 @@ else
           <argument>
             <kind>1</kind>
             <string>instance_create(690,global.groundEndY,oSlime2);
-instance_create(690,global.enemyFly_y,oIceBug);
+//instance_create(690,global.enemyFly_y,oIceBug);
 </string>
           </argument>
         </arguments>

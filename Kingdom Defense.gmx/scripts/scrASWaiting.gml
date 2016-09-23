@@ -11,7 +11,7 @@ else
         if (dist < global.me.myRn)
         {
             dire = point_direction(global.me.x,global.me.y,x,y);
-            if( scrASDirOk(global.me,id) )
+            if( scrASDirOk(global.me,id,dire) )
             ds_list_add(global.allFiendsInRange,id);
         }
     }
@@ -57,23 +57,22 @@ else
             
             a_x3 = fiend.x;
             a_y3 = fiend.y;
-        
+            
             fac = abs(scrProjektileGetAccl(a_x1,a_y1,a_x2,a_y2,a_x3,a_y3,wp_x));
-    
             projektileSp = 15-(fac);
-            dir = point_direction(wp_x,wp_y,wp_x+projektileSp,scrProjektileGetY(a_x1,a_y1,a_x2,a_y2,a_x3,a_y3,wp_x+projektileSp));    
+            dir = point_direction(wp_x,wp_y,wp_x+image_xscale*projektileSp,scrProjektileGetY(a_x1,a_y1,a_x2,a_y2,a_x3,a_y3,wp_x+image_xscale*projektileSp));    
         }   
     }
     
-    dir2 = (dir-(image_xscale*90));
-    if (dir2 < 0)
-    dir2 += 360;
+    dir2 = (dir+(image_xscale*90));
+    if (dir2 > 360)
+    dir2 -= 360;
                 
     wp_x = x+lengthdir_x(14,dir);
     wp_y = y+lengthdir_y(14,dir);
                 
-    wp_x -= lengthdir_x(5,dir2);
-    wp_y -= lengthdir_y(5,dir2);
+    wp_x += lengthdir_x(5,dir2);
+    wp_y += lengthdir_y(5,dir2);
     
     if(!loadingShot)
     waitUntilAtk -= 1;
@@ -85,10 +84,9 @@ else
             loadingShot = false;
         }
     }
-    
-    if (waitUntilAtk <= 0 && scrASDirOk(id,fiend) )
+
+    if (waitUntilAtk <= 0 && scrASDirOk(id,fiend,dir) )
     {
-        show_message("attack");
         curFrame = 0;
         state = attacking;
     } 

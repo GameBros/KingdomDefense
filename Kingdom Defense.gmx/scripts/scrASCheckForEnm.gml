@@ -8,7 +8,7 @@ with(oEnemy)
     {
         dire = point_direction(global.me.x,global.me.y,x,y);
         
-        if( scrASDirOk(global.me,id) )
+        if( scrASDirOk(global.me,id,dire) )
         ds_list_add(global.allFiendsInRange,id);
     }
 }

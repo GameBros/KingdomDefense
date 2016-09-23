@@ -15,8 +15,8 @@ draw_sprite(sCash,-1,view_xview[0],view_yview[0]-global.YAdd);
 scrDrawTxtOutlined(string(global.crystals),fHUD,fHUDBG,view_xview[0]+17,view_yview[0]+5-global.YAdd,c_white,c_black);
 
 //Waves Display
-X = view_xview[0]+640;
-Y = view_yview[0]+480;
+X = view_xview[0]+800;
+Y = view_yview[0]+450;
 
 draw_sprite(sWavesDisplay,1,X,Y+global.YAdd);
 
@@ -67,8 +67,8 @@ if ( goldBar_state == 2 )
     }
 }
 
-draw_sprite(sGold_Bar,-1,view_xview[0],view_yview[0]+480-goldBar_yAdd);
-draw_text_color(view_xview[0]+16,(view_yview[0]+484)-goldBar_yAdd,string(global.cash),c_white,c_white,c_white,c_white,1);
+draw_sprite(sGold_Bar,-1,view_xview[0],view_yview[0]+450-goldBar_yAdd);
+draw_text_color(view_xview[0]+16,(view_yview[0]+454)-goldBar_yAdd,string(global.cash),c_white,c_white,c_white,c_white,1);
 
 //essence drawing
 if ( essenceBar_state == 1 )
@@ -102,5 +102,5 @@ if ( essenceBar_state == 2 )
     }
 }
 
-draw_sprite(sEssence_Bar,0,view_xview[0]+640,(view_yview[0]+480)-essenceBar_yAdd);
-draw_text_color(view_xview[0]+570,(view_yview[0]+484)-essenceBar_yAdd,string(global.essences),c_white,c_white,c_white,c_white,1);
+draw_sprite(sEssence_Bar,0,view_xview[0]+800,(view_yview[0]+450)-essenceBar_yAdd);
+draw_text_color(view_xview[0]+570,(view_yview[0]+454)-essenceBar_yAdd,string(global.essences),c_white,c_white,c_white,c_white,1);
