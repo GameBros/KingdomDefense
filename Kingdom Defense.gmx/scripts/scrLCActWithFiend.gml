@@ -7,7 +7,7 @@ if (instance_exists(fiend))
         state = waiting;
         waitUntilAtk = myAtkSp;
     }
-    dist = fiend.x-x-((fiend.bbox_right-fiend.bbox_left)/2);
+    dist = abs(fiend.x-(x-((fiend.bbox_right-fiend.bbox_left)/2)));
     
     if ( dist < myRnShort )
     {

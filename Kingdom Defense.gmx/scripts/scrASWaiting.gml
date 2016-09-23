@@ -8,7 +8,7 @@ else
     with(oEnemy)
     {
         dist = abs(x-global.me.x);
-        if (dist < global.me.myRn && dist >= 0)
+        if (dist < global.me.myRn)
         {
             dire = point_direction(global.me.x,global.me.y,x,y);
             if( scrASDirOk(global.me,id) )
@@ -65,7 +65,7 @@ else
         }   
     }
     
-    dir2 = dir-90;
+    dir2 = (dir-(image_xscale*90));
     if (dir2 < 0)
     dir2 += 360;
                 
@@ -88,6 +88,7 @@ else
     
     if (waitUntilAtk <= 0 && scrASDirOk(id,fiend) )
     {
+        show_message("attack");
         curFrame = 0;
         state = attacking;
     } 

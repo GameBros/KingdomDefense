@@ -4,7 +4,7 @@ global.me = id;
 with(oEnemy)
 {
     dist = abs(x-global.me.x);
-    if (dist<global.me.myRn && dist >= 0)
+    if (dist<global.me.myRn)
     {
         dire = point_direction(global.me.x,global.me.y,x,y);
         

@@ -29,206 +29,206 @@ if( global.level_state == 0 )
     {   
         if( global.canChooseUnit )
         {
-        global.chosenUnitsSave = global.chosenUnits;
-        
-        if( global.chosenUnits == 0 )
-        {
-            //no unit is selected
-            clickedUnit = collision_point(mouse_x,mouse_y,oUnitHuman,true,true);
-            if( instance_exists(clickedUnit) )
+            global.chosenUnitsSave = global.chosenUnits;
+            
+            if( global.chosenUnits == 0 )
             {
-                clickedUnit.chosen = true;
-                global.chosenUnit = clickedUnit;
-                global.chosenUnits = 1;
-            }
-        }
-        else
-        {
-            //one or more units are selected
-            clickedSlot = collision_point(mouse_x,mouse_y,oSlot,true,true);
-            if( instance_exists(clickedSlot) )
-            {
-                if( clickedSlot.state == 1 )
+                //no unit is selected
+                clickedUnit = collision_point(mouse_x,mouse_y,oUnitHuman,true,true);
+                if( instance_exists(clickedUnit) )
                 {
-                    global.mvSlot = clickedSlot;
-                    
-                    if( global.chosenUnits > 1 )
+                    clickedUnit.chosen = true;
+                    global.chosenUnit = clickedUnit;
+                    global.chosenUnits = 1;
+                }
+            }
+            else
+            {
+                //one or more units are selected
+                clickedSlot = collision_point(mouse_x,mouse_y,oSlot,true,true);
+                if( instance_exists(clickedSlot) )
+                {
+                    if( clickedSlot.state == 1 )
                     {
-                        //clicked on an active slot , and more than one unit is selected
-                        chsSlotDir = 0;
-                        notLastUnit = true;
-                        oneDirNotFound = false;
+                        global.mvSlot = clickedSlot;
                         
-                        while( notLastUnit )
-                        {                    
-                            checkIndex = clickedSlot.index;
-                            checkSlot = ds_list_find_value(global.slots,checkIndex);
-                            gotoIndex = -1;
-                            while( checkIndex >= 0 && checkIndex <= ds_list_size(global.slots)-1 && gotoIndex == -1)
-                            {
-                                checkSlot = ds_list_find_value(global.slots,checkIndex);
-                                
-                                if( !instance_exists( checkSlot.myObject ) && checkSlot.state == 1 )
-                                gotoIndex = checkIndex;
-                                
-                                checkIndex += -1+2*chsSlotDir;
-                            }
+                        if( global.chosenUnits > 1 )
+                        {
+                            //clicked on an active slot , and more than one unit is selected
+                            chsSlotDir = 0;
+                            notLastUnit = true;
+                            oneDirNotFound = false;
                             
-                            unitIndex = -1;
-                            while( checkIndex <= ds_list_size(global.slots)-1 && checkIndex >= 0 && unitIndex == -1 )
-                            {
+                            while( notLastUnit )
+                            {                    
+                                checkIndex = clickedSlot.index;
                                 checkSlot = ds_list_find_value(global.slots,checkIndex);
-                                if( instance_exists(checkSlot.myObject) )
+                                gotoIndex = -1;
+                                while( checkIndex >= 0 && checkIndex <= ds_list_size(global.slots)-1 && gotoIndex == -1)
                                 {
-                                    if( checkSlot.myObject.chosen )
+                                    checkSlot = ds_list_find_value(global.slots,checkIndex);
+                                    
+                                    if( !instance_exists( checkSlot.myObject ) && checkSlot.state == 1 )
+                                    gotoIndex = checkIndex;
+                                    
+                                    checkIndex += -1+2*chsSlotDir;
+                                }
+                                
+                                unitIndex = -1;
+                                while( checkIndex <= ds_list_size(global.slots)-1 && checkIndex >= 0 && unitIndex == -1 )
+                                {
+                                    checkSlot = ds_list_find_value(global.slots,checkIndex);
+                                    if( instance_exists(checkSlot.myObject) )
                                     {
-                                        unitIndex = checkIndex;    
+                                        if( checkSlot.myObject.chosen )
+                                        {
+                                            unitIndex = checkIndex;    
+                                        }
+                                    }
+                                    checkIndex += -1+2*chsSlotDir;
+                                }
+                               
+                                unitGo = noone;
+                                if( ((chsSlotDir == 0 && unitIndex < gotoIndex) || (chsSlotDir == 1 && unitIndex > gotoIndex)) && unitIndex != -1 && gotoIndex != -1)
+                                {
+                                    unitGo = ds_list_find_value(global.slots,unitIndex).myObject;
+                                    global.slotGoTo = ds_list_find_value(global.slots,gotoIndex);   
+                                    oneDirNotFound = false;
+                                }
+                                else
+                                {
+                                    if( oneDirNotFound )
+                                    notLastUnit = false;
+                                    else
+                                    oneDirNotFound = true;
+                                }
+                                
+                                if( instance_exists(unitGo) )
+                                {
+                                    with( unitGo )
+                                    {
+                                        if( instance_exists(myMvSlot) ) myMvSlot.myObject = noone;
+                                        wantsToMove = true;
+                                        mySlot.myObject = noone;
+                                        myMvSlot = global.slotGoTo;
+                                        myMvSlot.myObject = id; 
                                     }
                                 }
-                                checkIndex += -1+2*chsSlotDir;
-                            }
-                           
-                            unitGo = noone;
-                            if( ((chsSlotDir == 0 && unitIndex < gotoIndex) || (chsSlotDir == 1 && unitIndex > gotoIndex)) && unitIndex != -1 && gotoIndex != -1)
-                            {
-                                unitGo = ds_list_find_value(global.slots,unitIndex).myObject;
-                                global.slotGoTo = ds_list_find_value(global.slots,gotoIndex);   
-                                oneDirNotFound = false;
-                            }
-                            else
-                            {
-                                if( oneDirNotFound )
-                                notLastUnit = false;
-                                else
-                                oneDirNotFound = true;
-                            }
-                            
-                            if( instance_exists(unitGo) )
-                            {
-                                with( unitGo )
-                                {
-                                    if( instance_exists(myMvSlot) ) myMvSlot.myObject = noone;
-                                    wantsToMove = true;
-                                    mySlot.myObject = noone;
-                                    myMvSlot = global.slotGoTo;
-                                    myMvSlot.myObject = id; 
-                                }
-                            }
-                            
-                            if( chsSlotDir == 0 )
-                                chsSlotDir = 1;
-                            else
-                                chsSlotDir = 0;
-                        }
-                    }
-                    else
-                    {
-                        //only one unit is selected
-                        swap = false;
-                        if( instance_exists(clickedSlot.myObject) )
-                            swap = (clickedSlot.myObject.state != -1);
-                            
-                        if( swap )
-                        {
-                            //There is already a unit on the slot the player clicked to move on
-                            if( clickedSlot.myObject != global.chosenUnit )
-                            {
-                                //The unit on this slot and the chosen unit want to swap places                        
-                                with(clickedSlot.myObject)
-                                {
-                                    if( instance_exists(myMvSlot) ) 
-                                    myMvSlot.myObject = noone;
-                                    
-                                    wantsToMove = true;
-                                    myMvSlot = global.chosenUnit.mySlot;
-                                    myMvSlot.myObject = id;
-                                }
                                 
-                                with(global.chosenUnit)
-                                {
-                                    if( instance_exists(myMvSlot) ) 
-                                    myMvSlot.myObject = noone;
-                                    
-                                    wantsToMove = true;
-                                    myMvSlot = global.mvSlot;
-                                    myMvSlot.myObject = id;
-                                }
-                           }
+                                if( chsSlotDir == 0 )
+                                    chsSlotDir = 1;
+                                else
+                                    chsSlotDir = 0;
+                            }
                         }
                         else
                         {
-                            //On the clicked slot, no unit exists
-                            moveUnit = false;
+                            //only one unit is selected
+                            swap = false;
                             if( instance_exists(clickedSlot.myObject) )
+                                swap = (clickedSlot.myObject.state != -1) && (global.chosenUnit.state != -1);
+                                
+                            if( swap )
                             {
-                                //There is already a unit walking to the clickedSlot
-                                checkIndex = clickedSlot.index;
-                                checkDir = (clickedSlot.x < global.chosenUnit.x);       //0 = left, 1 = right
-                                foundSlot = noone;
-                                
-                                while( checkIndex != global.chosenUnit.mySlot.index && checkIndex > -1 && checkIndex < ds_list_size(global.slots) ) 
+                                //There is already a unit on the slot the player clicked to move on
+                                if( clickedSlot.myObject != global.chosenUnit )
                                 {
-                                    checkSlot = ds_list_find_value(global.slots,checkIndex);
-                                    checkIndex += -1 + 2*checkDir;
-                                    
-                                    if( instance_exists(checkSlot) )
+                                    //The unit on this slot and the chosen unit want to swap places                        
+                                    with(clickedSlot.myObject)
                                     {
-                                        if( !instance_exists(checkSlot.myObject) && checkSlot.state == 1 )
-                                        {
-                                            foundSlot = checkSlot;
-                                            checkIndex = -1;
-                                        }
+                                        if( instance_exists(myMvSlot) ) 
+                                        myMvSlot.myObject = noone;
+                                        
+                                        wantsToMove = true;
+                                        myMvSlot = global.chosenUnit.mySlot;
+                                        myMvSlot.myObject = id;
                                     }
-                                }
-                                
-                                if( instance_exists(foundSlot) )
-                                {
-                                    global.mvSlot = foundSlot;
-                                    moveUnit = true;
-                                }
+                                    
+                                    with(global.chosenUnit)
+                                    {
+                                        if( instance_exists(myMvSlot) ) 
+                                        myMvSlot.myObject = noone;
+                                        
+                                        wantsToMove = true;
+                                        myMvSlot = global.mvSlot;
+                                        myMvSlot.myObject = id;
+                                    }
+                               }
                             }
                             else
-                                moveUnit = true;                                            
-                                
-                            if( moveUnit )
                             {
-                                with(global.chosenUnit)
+                                //On the clicked slot, no unit exists
+                                moveUnit = false;
+                                if( instance_exists(clickedSlot.myObject) )
                                 {
-                                    if( instance_exists(myMvSlot) ) myMvSlot.myObject = noone;
-                                    wantsToMove = true;
-                                    myMvSlot = global.mvSlot;
-                                    mySlot.myObject = noone;
-                                    myMvSlot.myObject = id;
-                                }    
+                                    //There is already a unit walking to the clickedSlot
+                                    checkIndex = clickedSlot.index;
+                                    checkDir = (clickedSlot.x < global.chosenUnit.x);       //0 = left, 1 = right
+                                    foundSlot = noone;
+                                    
+                                    while( checkIndex != global.chosenUnit.mySlot.index && checkIndex > -1 && checkIndex < ds_list_size(global.slots) ) 
+                                    {
+                                        checkSlot = ds_list_find_value(global.slots,checkIndex);
+                                        checkIndex += -1 + 2*checkDir;
+                                        
+                                        if( instance_exists(checkSlot) )
+                                        {
+                                            if( !instance_exists(checkSlot.myObject) && checkSlot.state == 1 )
+                                            {
+                                                foundSlot = checkSlot;
+                                                checkIndex = -1;
+                                            }
+                                        }
+                                    }
+                                    
+                                    if( instance_exists(foundSlot) )
+                                    {
+                                        global.mvSlot = foundSlot;
+                                        moveUnit = true;
+                                    }
+                                }
+                                else
+                                    moveUnit = true;                                            
+                                    
+                                if( moveUnit )
+                                {
+                                    with(global.chosenUnit)
+                                    {
+                                        if( instance_exists(myMvSlot) ) myMvSlot.myObject = noone;
+                                        wantsToMove = true;
+                                        myMvSlot = global.mvSlot;
+                                        mySlot.myObject = noone;
+                                        myMvSlot.myObject = id;
+                                    }    
+                                }
                             }
-                        }
-                    } 
+                        } 
+                    }
+                }  
+                
+                global.chosenUnits = 0;
+                global.chosenUnit = noone;
+                with oSlot
+                {
+                    state = 0;
                 }
-            }  
-            
-            global.chosenUnits = 0;
-            global.chosenUnit = noone;
-            with oSlot
+            }
+    
+            if( global.chosenUnits == 1 )
             {
-                state = 0;
+                scrCursorChoseUnit();    
+                with global.chosenUnit{
+                    scrUnitChosen();
+                }
             }
-        }
-
-        if( global.chosenUnits == 1 )
-        {
-            scrCursorChoseUnit();    
-            with global.chosenUnit{
-                scrUnitChosen();
-            }
-        }
-        else
-        {
-            with oUnitHuman
+            else
             {
-                chosen = false;
+                with oUnitHuman
+                {
+                    chosen = false;
+                }
             }
         }
-    }
     }
     
     if( mouse_check_button(mb_right) )

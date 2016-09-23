@@ -3,7 +3,7 @@ scrALShoot();
 state = waiting;
 loadingShot = true;
 
-curFrame = 1;
+curFrame = 0;
 
 if( wantsToMove )
 scrUnitStartMoving();

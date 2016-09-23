@@ -73,27 +73,27 @@ while(i &lt; ds_list_size(allBGs)-1)
         
     draw_y = view_yview[0];
   
-    shift = ((view_xview[0]-draw_x)/800-0.5);    
-    draw_x += round(shift)*800; 
+    shift = ((view_xview[0]-draw_x)/640);    
+    draw_x += round(shift)*640; 
     draw_sprite(bg,-1,draw_x,draw_y);   
 
-    if (draw_x &lt; view_xview[0])
-    draw_sprite(bg,-1,draw_x+800,draw_y);
+    if (draw_x &lt;= view_xview[0])
+    draw_sprite(bg,-1,draw_x+640,draw_y);
 
     i += 1;
 }
 
-ground.draw_x = floor((view_xview[0])/800)*800;
+ground.draw_x = floor((view_xview[0])/640)*640;
 ground.draw_y = view_yview[0];
-ground.draw2 = (draw_x &lt; view_xview[0]); 
+ground.draw2 = (draw_x &lt;= view_xview[0]); 
    
 forground.draw_x = view_xview[0]/(-0.4);
 
-shift = ((view_xview[0]-forground.draw_x)/800-0.5);    
-forground.draw_x += round(shift)*800; 
+shift = ((view_xview[0]-forground.draw_x)/640-0.5);    
+forground.draw_x += round(shift)*640; 
 
 forground.draw_y = view_yview[0];
-forground.draw2 = (forground.draw_x &lt; view_xview[0]); 
+forground.draw2 = (forground.draw_x &lt;= view_xview[0]); 
 </string>
           </argument>
         </arguments>

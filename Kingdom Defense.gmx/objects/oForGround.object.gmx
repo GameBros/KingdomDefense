@@ -59,7 +59,7 @@ draw_sprite(bg,0,draw_x,view_yview[0]);
 
 if (draw2 == true)
 {
-    draw_sprite(bg,0,draw_x+800,view_yview[0]);
+    draw_sprite(bg,0,draw_x+640,view_yview[0]);
 }
 </string>
           </argument>
