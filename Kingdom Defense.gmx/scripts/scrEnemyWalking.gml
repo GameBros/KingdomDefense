@@ -14,7 +14,7 @@ if( !isAir && instance_exists(slotNearMePrev) && instance_exists(slotNearMe) && 
             global.delSlot = false;
         }
         
-        if( global.delSlot )
+        if( global.delSlot && global.slotCheck.index > 2 )
         slotNearMe.unlocked = false;
     }
 }

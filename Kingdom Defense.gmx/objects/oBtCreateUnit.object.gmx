@@ -34,6 +34,9 @@ price = 0;
 sprite = noone;
 
 state = 0;              //0 = mouse is not on it, 1 = mouse is on it
+coolingDown = 0;
+coolDown = 60;
+coolDownTimer = 60;
 
 muenze_image = 0;
 
@@ -62,16 +65,11 @@ dragObj = noone;
             <kind>1</kind>
             <string>if( global.crystals &gt;= price &amp;&amp; global.level_state == 0 )
 {
-    if( mouse_check_button_released(mb_left) )
-    {
-        image_index = 0;
-    }
-
     if!(state == 1 &amp;&amp; image_index == 1)
     image_index = 0;
 
     //making
-    if (mouse_check_button_pressed(mb_left) and state == 1)
+    if (mouse_check_button_pressed(mb_left) and state == 1 and coolingDown == 0)
     {
         image_index = 1;
         if ( !instance_exists(dragObj) )
@@ -87,6 +85,7 @@ dragObj = noone;
                 //Potion
                 dragObj.myMgcAtk = scrGetUnitVar(15, 11);
             }
+            coolingDown = 1;
         }
     }
 }
@@ -102,11 +101,11 @@ if ( instance_exists(oCursor) )
     if (global.HUD_state == 0 and (oCursor.x&gt;=x &amp;&amp; oCursor.x&lt;(x+55)) and oCursor.y&lt;(y+65))
     {
         state = 1;
-
     }
     else
     {
         state = 0;
+        coolingDown = 0;
     }
 }
 
@@ -131,6 +130,23 @@ draw_text(price_x,price_y-global.YAdd,str);
 
 //draw muenze
 draw_sprite(sMuenze,muenze_image,muenzeX,price_y+4-global.YAdd);
+
+if( coolingDown &gt;= 1 )
+{
+    draw_set_alpha(0.5);
+    draw_rectangle(x,y,x+55,y+((coolDownTimer / coolDown)*64),false);
+    draw_set_alpha(1);
+    if( coolingDown == 2 )
+    {
+        coolDownTimer -= 1;
+        
+        if( coolDownTimer == 0 )    
+        {
+            coolDownTimer = coolDown;
+            coolingDown = 0;
+        }
+    }
+}
 </string>
           </argument>
         </arguments>

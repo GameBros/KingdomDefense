@@ -21,3 +21,4 @@ hp_percent = 0;
 hp_percent_temp = -1;
 
 chosen = false;
+state = 0;

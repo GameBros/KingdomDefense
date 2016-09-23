@@ -6,7 +6,7 @@
 
 global.room_type = 2;
 global.level_state = -1;           //-1 = prepare, 0 = running, 1 = complete, 2 = lost
-global.crystals = 3000;
+global.crystals = 20;
 global.lastWave = false;
 global.canChooseUnit = true;
 

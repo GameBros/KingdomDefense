@@ -80,7 +80,7 @@ if (image_index &gt;= 19 &amp;&amp; !created)
         Y = global.groundEndY;
         if ( flying )
         {
-            Y = global.enemyFly_y;
+            Y = y-64;
             sprite = scrGetEnemyVar(scrGetEnemyIndex(myMonster,0),8);
         }
         instance_create(oEnemyCastle.x-3,Y,myMonster);    

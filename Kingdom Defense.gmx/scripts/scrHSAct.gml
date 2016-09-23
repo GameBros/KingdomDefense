@@ -25,7 +25,11 @@ else
             wpn_spr = ds_list_find_value(ds_list_find_value(curAnim,curFrame),1);
             cornerX = x-sprite_get_xoffset(sprite_index);
             r = scrGetWeaponRot();
-            X = cornerX + ds_list_find_value(frame,3) + lengthdir_x(sprite_get_width(wpn_spr),r);
+            X = cornerX + ds_list_find_value(frame,3);
+            if( image_xscale == -1 )    
+                X = x-(X-x)
+            X += lengthdir_x(sprite_get_width(wpn_spr),r);
+            
             Y = cornerY + ds_list_find_value(frame,4);
         
             //effect
@@ -33,7 +37,7 @@ else
             f.sprite_index = sGlitter2;
         
             //heal ball creation
-            bl = instance_create(X-(image_xscale*2),Y,oHealBall);        
+            bl = instance_create(X,Y,oHealBall);        
             bl.target = mustHealUnit;
             bl.creator = id;
             bl.myMgcAtk = myMgcAtk;
@@ -125,8 +129,9 @@ else
         
                 testX = mustHealUnit.x+mustHealUnit.xToMid;
                 
-                if (testX-x <= distMaxHeal)
+                if (abs(testX-x) <= distMaxHeal)
                 {
+                    image_xscale = -1+(2*(testX-x >= 0))
                     curFrame = 0;
                     curFrameIsLast = false;
                     state = waiting;

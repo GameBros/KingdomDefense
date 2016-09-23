@@ -16,6 +16,7 @@ myMgcAtk = scrGetEnemyVar(myIndex,9);
 isAir = scrGetEnemyVar(myIndex,10);
 goldGive = scrGetEnemyVar(myIndex,13);
 goldDropChance = scrGetEnemyVar(myIndex,14);
+myObjectAtk = scrGetEnemyVar(myIndex,15);
 
 //States
 walkingLeft = 1;

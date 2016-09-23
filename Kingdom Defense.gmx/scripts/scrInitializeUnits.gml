@@ -5,35 +5,35 @@ global.unitsAsData = ds_list_create();
 
 //Soldier
 unit = scrInitializeUnit (0,4,20,1,10,sCard_unit2,0,2,5,3,80,0,0,0,0,5); 
-scrInitializeUnitPart2(unit,2,2);
+scrInitializeUnitPart2(unit,2,2,60,1);
 
 //Archer
 unit = scrInitializeUnit (1,2,20,10,15,sCard_unit3,0,2,3,2,50,0,1,0,1,5); 
-scrInitializeUnitPart2(unit,2,1);
+scrInitializeUnitPart2(unit,2,1,60,1);
 
 //Lancer
 unit = scrInitializeUnit (2,1,15,6,20,sCard_unit4,0,2,4,3,60,0,2,0,2,5); 
-scrInitializeUnitPart2(unit,2,1);
+scrInitializeUnitPart2(unit,2,1,60,1);
 
 //Healer
 unit = scrInitializeUnit (3,1,30,20,20,sCard_unit5,4,2,2,1,60,5,3,global.light,3,5); 
-scrInitializeUnitPart2(unit,2,1);
+scrInitializeUnitPart2(unit,2,1,60,1);
 
 //Mage Fire
 unit = scrInitializeUnit (4,1,30,4,70,sCard_unit6,9,1.5,0,0,80,10,4,global.fire,4,5);  
-scrInitializeUnitPart2(unit,2,1);
+scrInitializeUnitPart2(unit,2,1,60,1);
 
 //Mage Ice
 unit = scrInitializeUnit (5,1,30,4,70,sCard_unit7,9,1.5,0,0,40,10,5,global.ice,5,5); 
-scrInitializeUnitPart2(unit,2,1);
+scrInitializeUnitPart2(unit,2,1,60,1);
 
 //Mage Thunder
 unit = scrInitializeUnit (6,1,30,8,70,sCard_unit8,9,1.5,0,0,40,10,6,global.thunder,6,5);  
-scrInitializeUnitPart2(unit,2,1);
+scrInitializeUnitPart2(unit,2,1,60,1);
 
 //Thief
 unit = scrInitializeUnit (7,4,20,1,10,sCard_unit2,0,4,5,3,80,0,0,0,7,5); 
-scrInitializeUnitPart2(unit,2,1);
+scrInitializeUnitPart2(unit,2,1,60,1);
 
 /*
 //-------------------------------------------     UPGRADES     ----------------------------------------------
@@ -88,4 +88,6 @@ scrInitializeUnitPart2:
 argument0 = unit to add the following attributes to
 argument1 = viewRange
 argument2 = enemy capacity
+argument3 = creating cooldown
+argument4 = object atk power
 */

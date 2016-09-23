@@ -13,3 +13,4 @@ ds_list_add(enemy,argument11);  //element;
 ds_list_add(enemy,argument12);  //attack frame;
 ds_list_add(enemy,argument13);  //gold enemy drops;
 ds_list_add(enemy,argument14);  //chance that enemy drops gold;
+ds_list_add(enemy,argument15);  //object atk power;

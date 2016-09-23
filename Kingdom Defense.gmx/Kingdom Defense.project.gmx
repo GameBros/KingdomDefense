@@ -726,6 +726,9 @@
           <script>scripts\scrEnemyStatusEffects.gml</script>
           <script>scripts\scrEnemyCheckTargets.gml</script>
         </scripts>
+        <scripts name="EnemyCastle">
+          <script>scripts\scrEnemyCastleCreate.gml</script>
+        </scripts>
       </scripts>
       <scripts name="General">
         <script>scripts\scrActorDamage.gml</script>

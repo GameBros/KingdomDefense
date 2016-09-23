@@ -15,6 +15,8 @@ while(i < ds_list_size(global.cards_chosen))
     
     card.price = scrGetUnitVar(uni_new,4);
     card.sprite = scrGetUnitVar(uni_new,5);
+    card.coolDown = scrGetUnitVar(uni_new,18);
+    card.coolDownTimer = card.coolDown;
     
     i += 1;
 }

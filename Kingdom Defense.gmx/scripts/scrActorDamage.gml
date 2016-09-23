@@ -14,15 +14,23 @@ if( instance_exists(target) )
     target.hpBarStayTime = target.hpBarStayTimeMax;
     n = instance_create( target.x,target.bbox_top-32,oDamageNumber )
     
-    if ( dmgType == 1 )
+    if( target.object_index == oEnemyCastle || target.object_index == oUnitCastle )
     {
-        atk = attacker.myMgcAtk;
-        def = target.myMgcDef;
+        def = 0;
+        atk = attacker.myObjectAtk;
     }
     else
     {
-        atk = attacker.myAtk;
-        def = target.myDef;    
+        if ( dmgType == 1 )
+        {
+            atk = attacker.myMgcAtk;
+            def = target.myMgcDef;
+        }
+        else
+        {
+            atk = attacker.myAtk;
+            def = target.myDef;    
+        }
     }
     
     if (dmgKind == 0)
@@ -34,13 +42,16 @@ if( instance_exists(target) )
         damage = 0;
         
         //Critical?
-        r = random(1000);
-        
-        if ( r < attacker.myLuck )
+        if( target.object_index != oEnemyCastle && target.object_index != oUnitCastle )
         {
-            sound_play(soDamageCrit);
-            n.crit = true;
-            damage *= 3;
+            r = random(1000);
+            
+            if ( r < attacker.myLuck )
+            {
+                sound_play(soDamageCrit);
+                n.crit = true;
+                damage *= 3;
+            }
         }
     }
     else

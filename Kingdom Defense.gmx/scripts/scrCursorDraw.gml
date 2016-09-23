@@ -54,6 +54,15 @@ if( global.level_state == 0 )
                         
                         if( global.chosenUnits > 1 )
                         {
+                            //clear all reserved slots of the moving units
+                            with( oUnitAct )
+                            {
+                                if( state == -1 && chosen )
+                                {
+                                    if( instance_exists(myMvSlot) ) myMvSlot.myObject = noone;
+                                }
+                            }
+                            
                             //clicked on an active slot , and more than one unit is selected
                             chsSlotDir = 0;
                             notLastUnit = true;
