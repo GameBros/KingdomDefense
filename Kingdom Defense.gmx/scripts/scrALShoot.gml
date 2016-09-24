@@ -36,6 +36,7 @@ if (instance_exists(fiend))
 
     shot.myLuck = myLuck;
     shot.myAtk = myAtk;
+    shot.myObjAtk = myObjAtk;
     shot.myUnitIndex = (myGroup == 3);
 }
 

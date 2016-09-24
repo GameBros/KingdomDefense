@@ -133,9 +133,6 @@ draw_sprite(sMuenze,muenze_image,muenzeX,price_y+4-global.YAdd);
 
 if( coolingDown &gt;= 1 )
 {
-    draw_set_alpha(0.5);
-    draw_rectangle(x,y,x+55,y+((coolDownTimer / coolDown)*64),false);
-    draw_set_alpha(1);
     if( coolingDown == 2 )
     {
         coolDownTimer -= 1;
@@ -146,6 +143,10 @@ if( coolingDown &gt;= 1 )
             coolingDown = 0;
         }
     }
+
+    draw_set_alpha(0.5);
+    draw_rectangle(x,y,x+55,y+((coolDownTimer / coolDown)*64),false);
+    draw_set_alpha(1);
 }
 </string>
           </argument>

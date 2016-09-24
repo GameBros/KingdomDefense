@@ -6,6 +6,8 @@ y_createState = 0;
 start = false;
 myHpMax = 50;
 myHpAct = myHpMax;
+myMgcDef = 0;
+myDef = 0;
 isAir = false;
 
 //Stats

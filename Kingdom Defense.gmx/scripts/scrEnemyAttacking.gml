@@ -15,6 +15,7 @@ if (curFrame == atkFrame && toNextFrame == animSp)
         global.myCollider.sprite_index = colSprite;
         global.myCollider.myAtk = myAtk;
         global.myCollider.myLuck = myLuck;
+        global.myCollider.myObjAtk = myObjAtk;
         
         with atkUnit 
         {

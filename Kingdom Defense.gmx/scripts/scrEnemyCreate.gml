@@ -16,7 +16,7 @@ myMgcAtk = scrGetEnemyVar(myIndex,9);
 isAir = scrGetEnemyVar(myIndex,10);
 goldGive = scrGetEnemyVar(myIndex,13);
 goldDropChance = scrGetEnemyVar(myIndex,14);
-myObjectAtk = scrGetEnemyVar(myIndex,15);
+myObjAtk = scrGetEnemyVar(myIndex,15);
 
 //States
 walkingLeft = 1;
@@ -32,7 +32,7 @@ curFrame = 0;
 animSp = 2;
 speed = mySp;
 
-animations = scrGetEnemyVar(argument0,15);
+animations = scrGetEnemyVar(argument0,16);
 animWalking = ds_list_find_value(animations,0);
 animAttacking = ds_list_find_value(animations,1);
 animDieing = ds_list_find_value(animations,2);

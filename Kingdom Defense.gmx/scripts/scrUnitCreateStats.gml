@@ -19,4 +19,4 @@ myHpRegen = scrGetUnitVar(argument0,14);
 myGear = scrGetUnitVar(argument0,15);
 myViewRange = scrGetUnitVar(argument0,16);
 myEnmCapacity = scrGetUnitVar(argument0,17);
-myObjectAtk = scrGetEnemyVar(argument0,19);
+myObjAtk = scrGetEnemyVar(argument0,20);

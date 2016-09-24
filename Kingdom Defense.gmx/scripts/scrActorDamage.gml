@@ -16,8 +16,8 @@ if( instance_exists(target) )
     
     if( target.object_index == oEnemyCastle || target.object_index == oUnitCastle )
     {
-        def = 0;
-        atk = attacker.myObjectAtk;
+        atk = attacker.myObjAtk;
+        damage = atk;
     }
     else
     {
@@ -31,33 +31,34 @@ if( instance_exists(target) )
             atk = attacker.myAtk;
             def = target.myDef;    
         }
-    }
-    
-    if (dmgKind == 0)
-    {
-        n.col = c_white;    
-        damage = -(atk-def);
-            
-        if (damage > 0)
-        damage = 0;
         
-        //Critical?
-        if( target.object_index != oEnemyCastle && target.object_index != oUnitCastle )
+        if (dmgKind == 0)
         {
-            r = random(1000);
+            n.col = c_white;    
             
-            if ( r < attacker.myLuck )
+            damage = -(atk-def);
+                
+            if (damage > 0)
+            damage = 0;
+            
+            //Critical?
+            if( target.object_index != oEnemyCastle && target.object_index != oUnitCastle )
             {
-                sound_play(soDamageCrit);
-                n.crit = true;
-                damage *= 3;
+                r = random(1000);
+                
+                if ( r < attacker.myLuck )
+                {
+                    sound_play(soDamageCrit);
+                    n.crit = true;
+                    damage *= 3;
+                }
             }
         }
-    }
-    else
-    {
-        n.col = c_lime;
-        damage = atk;
+        else
+        {
+            n.col = c_lime;
+            damage = atk;
+        }
     }
     
     n.dmg = damage;
