@@ -59,7 +59,12 @@ if( global.level_state == 0 )
                             {
                                 if( state == -1 && chosen )
                                 {
-                                    if( instance_exists(myMvSlot) ) myMvSlot.myObject = noone;
+                                    if( instance_exists(myMvSlot) ) 
+                                    {
+                                        //myMvSlotSave = 
+                                        //myMvSlot.myObject = noone;
+                                        
+                                    }
                                 }
                             }
                             

@@ -107,6 +107,7 @@ if ( mouse_check_button_pressed(mb_left) &amp;&amp; released )
     if ( state == 0 )
     {
         myCard.dragObj = noone;
+        myCard.coolingDown = 0;
     }
     else
     {     
