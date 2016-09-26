@@ -13,7 +13,7 @@ if( instance_exists(target) )
     target.hpBarStays = true;                  //whether hp bar is visible
     target.hpBarStayTime = target.hpBarStayTimeMax;
     n = instance_create( target.x,target.bbox_top-32,oDamageNumber )
-    
+    damage = 0;
     if( target.object_index == oEnemyCastle || target.object_index == oUnitCastle )
     {
         atk = attacker.myObjAtk;

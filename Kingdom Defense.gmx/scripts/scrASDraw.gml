@@ -109,9 +109,6 @@ else
     draw_sprite_ext(myWSpr,curFrame,wp_x,wp_y,1,1,dir,c_white,1);
 }
 
-//debugging
-draw_text(x,y-50,string(dir));
-
 //Dead?
 scrUnitCheckDead();
 
