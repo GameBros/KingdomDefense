@@ -14,6 +14,7 @@ draw_sprite(sCash,-1,view_xview[0],view_yview[0]-global.YAdd);
 
 scrDrawTxtOutlined(string(global.crystals),fHUD,fHUDBG,view_xview[0]+17,view_yview[0]+5-global.YAdd,c_white,c_black);
 
+/*
 //Waves Display
 X = view_xview[0]+800;
 Y = view_yview[0]+450;
@@ -32,7 +33,7 @@ draw_sprite(sWavesDisplay,0,X,Y+global.YAdd);
 
 scrDrawTxtOutlined(string(wv_act),fHUD,fHUDBG,X-43,Y-20+global.YAdd,c_white,c_black);
 scrDrawTxtOutlined(string(wv_max),fHUD,fHUDBG,X-20,Y-20+global.YAdd,c_white,c_black);
-
+*/
 draw_set_font(fHUD);
 
 //gold drawing

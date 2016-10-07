@@ -28,9 +28,9 @@ for ( i = 0; i < global.lv_numberOfSlots; i += 1 )
 }
 
 lastSlot = ds_list_find_value(global.slots,ds_list_size(global.slots)-1);
-instance_create(lastSlot.x+slDist,global.groundEndY,oEnemyCryHole1);
-instance_create(lastSlot.x+slDist,global.groundEndY,oEnemyCryHole2);
-e = instance_create(lastSlot.x+slDist,global.groundEndY-5,oEnemyCastle);
+instance_create(lastSlot.x+(slDist/2),global.groundEndY,oEnemyCryHole1);
+instance_create(lastSlot.x+(slDist/2),global.groundEndY,oEnemyCryHole2);
+e = instance_create(lastSlot.x+(slDist/2),global.groundEndY-5,oEnemyCastle);
 e.y_createState = global.groundEndY-64;
 
 global.enemyFly_y = oEnemyCastle.y-64;

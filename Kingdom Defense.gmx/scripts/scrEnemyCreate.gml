@@ -67,3 +67,5 @@ slotNearMe = noone;
 //Status effects
 iced = false;
 ice_stayTime = 0;
+
+myGroup = -3;

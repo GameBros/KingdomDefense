@@ -35,6 +35,37 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
+    <sprites name="EnemyCrystals">
+      <sprites name="Explode">
+        <sprite>sprites\sCrystal_Explode1</sprite>
+        <sprite>sprites\sCrystal_Explode2</sprite>
+        <sprite>sprites\sCrystal_Explode</sprite>
+        <sprite>sprites\sCrystal_Explode_Eff</sprite>
+        <sprite>sprites\sCrystal_Explode_Part</sprite>
+        <sprite>sprites\sCrystal_Explode_Eye</sprite>
+      </sprites>
+      <sprites name="Damage">
+        <sprite>sprites\sEnemyCrystal1</sprite>
+        <sprite>sprites\sEnemyCrystalHit</sprite>
+      </sprites>
+      <sprites name="Produce">
+        <sprite>sprites\sEnemyCrystalEff1</sprite>
+        <sprite>sprites\sEnemyCrystalEff2</sprite>
+        <sprite>sprites\sEnemyCrystalEff3</sprite>
+        <sprite>sprites\sEnemyCrystal_newEnemy</sprite>
+        <sprite>sprites\sEnemyCrystal_newEnemy_fly</sprite>
+      </sprites>
+      <sprites name="Essence">
+        <sprite>sprites\sEssence</sprite>
+        <sprite>sprites\sEssence_collect</sprite>
+        <sprite>sprites\sEssence_fly</sprite>
+      </sprites>
+      <sprites name="Hole - Seal">
+        <sprite>sprites\sCrystal_hole</sprite>
+        <sprite>sprites\sCrystal_dirt</sprite>
+        <sprite>sprites\sCrystal_overlay</sprite>
+      </sprites>
+    </sprites>
     <sprites name="Overworld">
       <sprite>sprites\sSpot</sprite>
       <sprite>sprites\sWayPoint</sprite>
@@ -145,37 +176,6 @@
       </sprites>
     </sprites>
     <sprites name="Leveldesign">
-      <sprites name="EnemyCrystals">
-        <sprites name="Explode">
-          <sprite>sprites\sCrystal_Explode1</sprite>
-          <sprite>sprites\sCrystal_Explode2</sprite>
-          <sprite>sprites\sCrystal_Explode</sprite>
-          <sprite>sprites\sCrystal_Explode_Eff</sprite>
-          <sprite>sprites\sCrystal_Explode_Part</sprite>
-          <sprite>sprites\sCrystal_Explode_Eye</sprite>
-        </sprites>
-        <sprites name="Damage">
-          <sprite>sprites\sEnemyCrystal1</sprite>
-          <sprite>sprites\sEnemyCrystalHit</sprite>
-        </sprites>
-        <sprites name="Produce">
-          <sprite>sprites\sEnemyCrystalEff1</sprite>
-          <sprite>sprites\sEnemyCrystalEff2</sprite>
-          <sprite>sprites\sEnemyCrystalEff3</sprite>
-          <sprite>sprites\sEnemyCrystal_newEnemy</sprite>
-          <sprite>sprites\sEnemyCrystal_newEnemy_fly</sprite>
-        </sprites>
-        <sprites name="Essence">
-          <sprite>sprites\sEssence</sprite>
-          <sprite>sprites\sEssence_collect</sprite>
-          <sprite>sprites\sEssence_fly</sprite>
-        </sprites>
-        <sprites name="Hole - Seal">
-          <sprite>sprites\sCrystal_hole</sprite>
-          <sprite>sprites\sCrystal_dirt</sprite>
-          <sprite>sprites\sCrystal_overlay</sprite>
-        </sprites>
-      </sprites>
       <sprites name="Grasslands">
         <sprites name="BGs">
           <sprite>sprites\sBG_grasslands_1</sprite>
@@ -728,6 +728,7 @@
         </scripts>
         <scripts name="EnemyCastle">
           <script>scripts\scrEnemyCastleCreate.gml</script>
+          <script>scripts\scrEnemyCastleDraw.gml</script>
         </scripts>
       </scripts>
       <scripts name="General">
@@ -735,6 +736,12 @@
         <script>scripts\scrFadeColor.gml</script>
         <script>scripts\scrActorAttack.gml</script>
         <script>scripts\scrDrawShade.gml</script>
+      </scripts>
+      <scripts name="Projektils">
+        <script>scripts\scrProjektile_Create.gml</script>
+        <script>scripts\scrProjektile1_Draw.gml</script>
+        <script>scripts\scrProjektile2_Draw.gml</script>
+        <script>scripts\scrProjektileDraw.gml</script>
       </scripts>
     </scripts>
     <scripts name="Level">
@@ -766,12 +773,6 @@
           <script>scripts\screUnitBtCreate.gml</script>
         </scripts>
       </scripts>
-    </scripts>
-    <scripts name="Projektils">
-      <script>scripts\scrProjektile_Create.gml</script>
-      <script>scripts\scrProjektile1_Draw.gml</script>
-      <script>scripts\scrProjektile2_Draw.gml</script>
-      <script>scripts\scrProjektileDraw.gml</script>
     </scripts>
     <scripts name="Overworld">
       <script>scripts\scrOvWdLoad.gml</script>

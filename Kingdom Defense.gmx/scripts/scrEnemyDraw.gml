@@ -4,12 +4,6 @@ if ( global.level_state != 1)
     //HpBar staying
     scrHealthStay();
     
-    //if mouse rolls over
-    if (point_in_rectangle(mouse_x,mouse_y,bbox_left,bbox_right,bbox_top,bbox_bottom) || hpBarStays)
-    {
-        script_execute(scrDrawHealth,x,bbox_top-10,myHpAct,myHpMax,1);
-    }
-    
     switch(state)
     {
         case walkingLeft:

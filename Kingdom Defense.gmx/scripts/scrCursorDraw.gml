@@ -61,9 +61,9 @@ if( global.level_state == 0 )
                                 {
                                     if( instance_exists(myMvSlot) ) 
                                     {
-                                        //myMvSlotSave = 
-                                        //myMvSlot.myObject = noone;
-                                        
+                                        myMvSlotObjSave = myMvSlot.myObject;
+                                        myMvSlot.myObject = noone;
+                                        myMvSlot = noone;
                                     }
                                 }
                             }
@@ -117,7 +117,7 @@ if( global.level_state == 0 )
                                     oneDirNotFound = true;
                                 }
                                 
-                                if( instance_exists(unitGo) )
+                                if( instance_exists(unitGo) && !instance_exists( global.slotGoTo.myObject ) )
                                 {
                                     with( unitGo )
                                     {

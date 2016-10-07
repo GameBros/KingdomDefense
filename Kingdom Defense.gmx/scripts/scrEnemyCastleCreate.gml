@@ -1,7 +1,7 @@
 // - argument0 = index
 
 yToMid = 0;
-y_createState = 0;
+y_createState = 32;
 
 start = false;
 myHpMax = 50;
@@ -46,3 +46,4 @@ slotNearMe = noone;
 //Status effects
 iced = false;
 ice_stayTime = 0;
+myGroup = -2;
