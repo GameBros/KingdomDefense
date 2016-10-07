@@ -24,4 +24,4 @@ ds_list_add(waves,w4);
 ds_list_add(waves,w4);
 ds_list_add(waves,w5);
 
-scrInitLvFin(18,2);
+scrInitLvFin(18,18);

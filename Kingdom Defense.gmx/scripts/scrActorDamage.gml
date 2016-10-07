@@ -86,7 +86,8 @@ if( instance_exists(target) )
         case 0: ef_obj = oEffectStandart;
                 ef_spr = sHit; 
                 ef_x = target.x;
-                ef_y = target.y-target.yToMid;
+                if( target.object_index == oEnemyCastle )   ef_y = target.y;
+                else    ef_y = target.y-target.yToMid;
         break;
     }
     

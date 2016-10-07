@@ -12,7 +12,7 @@ en = collision_line(xprevious,yprevious,topX,topY,oEnemyMelee,1,1);
 if (instance_exists(en))
 {
     sound_play(soDamageNormal2);
-    scrActorDamage(en,self,0,0,0,false,c_red);
+    scrActorDamage(en,id,0,0,0,false,c_red);
     instance_destroy();
 }
 

@@ -2,7 +2,11 @@
 <sprite>
   <type>0</type>
   <xorig>32</xorig>
+<<<<<<< HEAD
   <yorigin>44</yorigin>
+=======
+  <yorigin>48</yorigin>
+>>>>>>> origin/master
   <colkind>1</colkind>
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
