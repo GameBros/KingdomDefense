@@ -1,4 +1,4 @@
-if ( y > y_createState && start && global.level_state == -1 )
+if ( y > y_createState && start  )
 {
     y -= 0.5;
     

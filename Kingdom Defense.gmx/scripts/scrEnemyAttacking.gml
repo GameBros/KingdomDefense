@@ -4,7 +4,11 @@ if (curFrame == sprite_get_number(curAnim)-1)
    curFrame = 0;
    state = waiting;
    waitUntilAtk = myAtkSp;
+   
+   if( !isAir )
    curAnim = animAttacking;
+   else
+   curAnim = animWalking;
 }
 
 if (curFrame == atkFrame && toNextFrame == animSp)

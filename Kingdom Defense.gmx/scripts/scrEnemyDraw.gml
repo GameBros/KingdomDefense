@@ -20,7 +20,7 @@ if ( global.level_state != 1)
     }
     
     //Manage Animation
-    if (state != waiting and state != skilling)
+    if ( (!isAir && (state != waiting and state != skilling)) || (isAir && state != skilling))
     {
         toNextFrame -= 1; //time delay until next frame shall be drawn
     

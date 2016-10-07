@@ -26,7 +26,7 @@ if ( instance_exists(atkUnit) )
     global.me = id;
     
     state = waiting;
-    curAnim = animAttacking;
+    if( !isAir )    curAnim = animAttacking;
     speed = 0;
     curFrame = 0; 
 } 
