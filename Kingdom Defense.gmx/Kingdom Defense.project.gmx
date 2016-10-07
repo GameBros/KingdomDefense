@@ -319,6 +319,9 @@
             <sprites name="Books">
               <sprite>sprites\sBk1</sprite>
             </sprites>
+            <sprites name="daggers">
+              <sprite>sprites\sDagger1</sprite>
+            </sprites>
           </sprites>
           <sprites name="Thief">
             <sprite>sprites\sTHWalk</sprite>
