@@ -17,10 +17,12 @@ if ( unitAttack )
     global.myCollider.sprite_index = collider;
     global.myCollider.image_angle = scrGetWeaponRot();
     global.myCollider.myElement = myElement;
+    
 }
 
 global.myCollider.image_xscale = 1; 
 global.myCollider.myAtk = myAtk;
+global.myCollider.myObjAtk = myObjAtk;
 global.myCollider.myLuck = myLuck;
 global.unitAttack = unitAttack;
 global.myCollider.myMgcAtk = myMgcAtk;

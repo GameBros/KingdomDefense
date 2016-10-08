@@ -729,16 +729,13 @@
           <script>scripts\scrEnemyStatusEffects.gml</script>
           <script>scripts\scrEnemyCheckTargets.gml</script>
         </scripts>
-        <scripts name="EnemyCastle">
-          <script>scripts\scrEnemyCastleCreate.gml</script>
-          <script>scripts\scrEnemyCastleDraw.gml</script>
-        </scripts>
       </scripts>
       <scripts name="General">
         <script>scripts\scrActorDamage.gml</script>
         <script>scripts\scrFadeColor.gml</script>
         <script>scripts\scrActorAttack.gml</script>
         <script>scripts\scrDrawShade.gml</script>
+        <script>scripts\scrAlphaMask.gml</script>
       </scripts>
       <scripts name="Projektils">
         <script>scripts\scrProjektile_Create.gml</script>
@@ -775,6 +772,10 @@
           <script>scripts\scrUnitBtStep.gml</script>
           <script>scripts\screUnitBtCreate.gml</script>
         </scripts>
+      </scripts>
+      <scripts name="EnemyCastle">
+        <script>scripts\scrEnemyCastleCreate.gml</script>
+        <script>scripts\scrEnemyCastleDraw.gml</script>
       </scripts>
     </scripts>
     <scripts name="Overworld">

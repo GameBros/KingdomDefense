@@ -1,4 +1,4 @@
-if ( y > y_createState && start  )
+if ( y > y_createState && start )
 {
     y -= 0.5;
     
@@ -6,6 +6,8 @@ if ( y > y_createState && start  )
     {    
         oEnemyCryHole1.state = 1;
         oEnemyCryHole2.state = 1;
+        
+        if( global.level_state != 0 )
         global.level_state = -3;
     }
 }
@@ -18,3 +20,5 @@ if( myHpAct <= 0 )
 scrHealthStay();
 
 draw_sprite(sprite_index,0,x,y);
+
+scrAlphaMask();

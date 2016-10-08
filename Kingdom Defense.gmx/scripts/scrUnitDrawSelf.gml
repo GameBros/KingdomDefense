@@ -16,7 +16,8 @@ draw_sprite_ext(sprite_index,curFrame,x,y,image_xscale,image_yscale,0,c_white,1)
 if (myAlpha > 0) 
 {
     scrFadeColor(sprite_index,dmgColor,myAlpha,curFrame,0,0,0);    
-    myAlpha -= 0.1;
+    
+    myAlpha-=0.1;
     
     if myAlpha<0 then myAlpha=0;
 }

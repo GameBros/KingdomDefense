@@ -42,6 +42,7 @@ muenze_image = 0;
 
 dragObj = noone;
 myAlpha = 0;
+dmgColor = c_white;
 </string>
           </argument>
         </arguments>
@@ -150,14 +151,7 @@ if( coolingDown &gt;= 1 )
     }
 }
 
-if (myAlpha &gt; 0) 
-{
-    scrFadeColor(sprite,c_white,myAlpha,image_index,0,0,0);    
-    
-    myAlpha-=0.1;
-    
-    if myAlpha&lt;0 then myAlpha=0;
-}
+scrAlphaMask();
 </string>
           </argument>
         </arguments>

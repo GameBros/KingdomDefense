@@ -47,3 +47,5 @@ slotNearMe = noone;
 iced = false;
 ice_stayTime = 0;
 myGroup = -2;
+
+image_speed = 0;
