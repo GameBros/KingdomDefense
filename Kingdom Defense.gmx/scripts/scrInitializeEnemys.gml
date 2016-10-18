@@ -14,7 +14,7 @@ scrInitializeEnemyAnim(sE_IceSlimeMv,sE_IceSlimeAt,sE_IceSlimeDi,sE_SlimeCol,0);
 
 //IceBug
 enemy = ds_list_create();
-scrInitializeEnemy(2,4,-0.6,85,1,1,15,1,0,0,true,0,6,10,5,1);
+scrInitializeEnemy(2,4,-0.6,85,1,1,15,1,0,0,true,0,10,10,5,1);
 scrInitializeEnemyAnim(sE_IceBugMv,sE_IceBugAt,sE_IceBugDi1,sE_IceBugCol,sE_IceBugDi2);
 
 //Skull

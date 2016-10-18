@@ -53,21 +53,7 @@ if( global.level_state == 0 )
                         global.mvSlot = clickedSlot;
                         
                         if( global.chosenUnits > 1 )
-                        {
-                            //clear all reserved slots of the moving units
-                            with( oUnitAct )
-                            {
-                                if( state == -1 && chosen )
-                                {
-                                    if( instance_exists(myMvSlot) ) 
-                                    {
-                                        myMvSlotObjSave = myMvSlot.myObject;
-                                        myMvSlot.myObject = noone;
-                                        myMvSlot = noone;
-                                    }
-                                }
-                            }
-                            
+                        {                            
                             //clicked on an active slot , and more than one unit is selected
                             chsSlotDir = 0;
                             notLastUnit = true;
@@ -121,11 +107,14 @@ if( global.level_state == 0 )
                                 {
                                     with( unitGo )
                                     {
-                                        if( instance_exists(myMvSlot) ) myMvSlot.myObject = noone;
+                                        if( instance_exists(myMvSlot) ) 
+                                        myMvSlot.myObject = noone;
+                                        
                                         wantsToMove = true;
                                         mySlot.myObject = noone;
                                         myMvSlot = global.slotGoTo;
                                         myMvSlot.myObject = id; 
+                                        chosen = false;
                                     }
                                 }
                                 

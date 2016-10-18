@@ -1,5 +1,5 @@
 with oSlot
 {
-    if( unlocked )
+    if( unlocked && !instance_exists(myObject))
     state = 1;
 }
